@@ -12,3 +12,5 @@ The overall workflow is as follows:
 - calcWeights.C - Begins with data files for signal and background events as well as larger sample of 200k events including weights for background. Output: atm/nnbar_weights_nocut.root
 - cutFeatures.C - Applies pre-cuts to data, Output: atm/nnbar_featurevars_cut.root, atm/nnbar_weights_cut.root, and atm/nnbar efficiency and deficiency due to cuts
 - classfication.ipynb - Boosted Decision Tree classification of signal and background. Output: 90% C.L. free $n\rightarrow\bar{n}$ oscillation lifetime at DUNE TDR background rate and exposure without systematic uncertainty analysis.
+
+Additionally, there are files for plotting feature variables, PID, and the weighted versus unweighted atmospheric neutrino energy spectrum.
