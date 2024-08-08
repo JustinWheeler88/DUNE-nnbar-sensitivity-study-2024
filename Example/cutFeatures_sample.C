@@ -9,7 +9,7 @@
 #include <TFile.h>
 #include <TTree.h>
 
-void cutFeatures() {
+void cutFeatures_sample() {
 
     // Uncut feature variable file names
     int num_files = 2;    
@@ -20,17 +20,17 @@ void cutFeatures() {
     for (int file_i = 0; file_i < num_files; file_i++){
         
         // Read uncut feature var and weight files
-        TFile *varfile = TFile::Open(Form("%s_featurevars_nocut.root",fileIdentifier[file_i].c_str()));
+        TFile *varfile = TFile::Open(Form("%s_featurevars_nocut_sample.root",fileIdentifier[file_i].c_str()));
         TTree *vartree = (TTree*)varfile->Get("feats");
 
-        TFile *wfile = TFile::Open(Form("%s_weights_nocut.root",fileIdentifier[file_i].c_str()));
+        TFile *wfile = TFile::Open(Form("%s_weights_nocut_sample.root",fileIdentifier[file_i].c_str()));
         TTree *wtree = (TTree*)wfile->Get("weight");
             
         // Create new files with trees for feature vars and weights
-        TFile *cut_varfile = TFile::Open(Form("%s_featurevars_cut.root",fileIdentifier[file_i].c_str()), "RECREATE");
+        TFile *cut_varfile = TFile::Open(Form("%s_featurevars_cut_sample.root",fileIdentifier[file_i].c_str()), "RECREATE");
         TTree *cut_vartree = new TTree("feats", Form("%s feature vars with pre-cuts applied",fileIdentifier[file_i].c_str()));
         
-        TFile *cut_wfile = TFile::Open(Form("%s_weights_cut.root",fileIdentifier[file_i].c_str()), "RECREATE");
+        TFile *cut_wfile = TFile::Open(Form("%s_weights_cut_sample.root",fileIdentifier[file_i].c_str()), "RECREATE");
         TTree *cut_wtree = new TTree("weight", Form("%s normalized weights with pre-cuts applied",fileIdentifier[file_i].c_str()));
 
         // Define feature vars for uncut file

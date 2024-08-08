@@ -7,13 +7,13 @@
 #include <iostream>
 #include <cmath> 
 
-void drawAtmSpectrum(){
+void drawAtmSpectrum_sample(){
 	
 	// User input for background data file
-	std::string inputFileName = "/some/backgroundfile/name";
-	std::string inputTreeName = "some_tree_name";
+	std::string inputFileName = "atm_output_sample.root";
+	std::string inputTreeName = "ana";
 
-	gROOT->ProcessLine(".x duneStyle_6to4.C");
+	gROOT->ProcessLine(".x duneStyle_6to4_sample.C");
 
 	float pi = TMath::Pi();
 
@@ -22,7 +22,7 @@ void drawAtmSpectrum(){
 	TTree *outtree = (TTree*)outfile->Get(inputTreeName.c_str());
 
 	// Read weights
-	TFile* atmweight_file = TFile::Open("atm_weights_nocut.root");
+	TFile* atmweight_file = TFile::Open("atm_weights_nocut_sample.root");
 	TTree* atmweight = (TTree*)atmweight_file->Get("weight");
 
 	Int_t geant_list_size;

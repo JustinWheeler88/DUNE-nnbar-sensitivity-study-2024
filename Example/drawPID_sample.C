@@ -13,17 +13,17 @@
 #include <TH1F.h>
 #include <TLegend.h>
 
-void drawPID() {
+void drawPID_sample() {
     
     // User input for data file name  
     int num_files = 2;
-    std::string inputFileName[2] = {"/some/backgroundfile/name", "/some/signalfile/name"};  // Input .root file names here
-    std::string inputTreeName[2] = {"some_tree_name", "some_tree_name"};                    // Input tree names here
+    std::string inputFileName[2] = {"atm_output_sample.root", "nnbar_output_sample.root"};  // Input .root file names here
+    std::string inputTreeName[2] = {"ana", "ana"};                    // Input tree names here
     
     // Identify signal and background feature files
     std::string fileIdentifier[2] = {"atm", "nnbar"};
 
-    gROOT->ProcessLine(".x duneStyle_square.C");
+    gROOT->ProcessLine(".x duneStyle_square_sample.C");
 
     // Define arrays for variables, units, bins, lower and upper limits
     const int nvars = 5;
